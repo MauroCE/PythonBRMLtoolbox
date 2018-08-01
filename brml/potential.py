@@ -1,3 +1,4 @@
+import numpy as np
 
 
 class Potential:
@@ -37,7 +38,7 @@ class Potential:
         """
         # For now, just pass variables and table in the constructor and assign
         # them as instance attributes
-        self.variables = variables
+        self.variables = self._check_vars(variables)
         self.table = table
 
     def __repr__(self) -> str:
@@ -48,3 +49,30 @@ class Potential:
         :rtype: str
         """
         return "Potential({}, {})".format(self.variables, self.table)
+
+    @staticmethod
+    def _check_vars(variables):
+        """
+        This method can be used at initialization, in the __init__ constructor.
+        Its purpose is to check that the variables argument in __init__ is
+        of the correct type. Ideally, I would like the argument to be an
+        iterable. This class will check that, but will also allow numeric
+        values, which will be converted to iterable. For now, I will just check
+        the data type, however to check whether it is iterable or not, go to
+        https://stackoverflow.com/a/1952655/6435921
+
+        :param variables:
+        :return: variables with correct data type
+        :rtype: np.array
+        """
+        # Allow: list, np.array
+        if isinstance(variables, (np.ndarray, list)):
+            # Handle np.array with dim (n, 1) or other dimensions
+            return np.array(variables, dtype=np.int8).flatten()
+        # Convert int, float
+        elif isinstance(variables, (int, float)):
+            return np.array([variables], dtype=np.int8)
+        else:
+            raise TypeError(
+                "Variables parameter must be a list, np.array, int or float."
+            )
