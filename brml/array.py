@@ -25,3 +25,4 @@ class Array(Potential):
 
 if __name__ == "__main__":
     a = Array([1], np.array([0.1, 0.2]))
+    print(a)
