@@ -34,7 +34,6 @@ class Variable:
 
         Notice that one could use both:
         butler.ix('murderer') and butler.murderer
-        TODO: Decide which implementation is better
 
         :param state: Name of the state for which we want the index
         :type state: str
