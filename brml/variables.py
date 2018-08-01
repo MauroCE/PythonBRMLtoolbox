@@ -31,3 +31,20 @@ def order_variables(variable_list):
     :rtype: list
     """
     return sorted(variable_list, key=lambda x: x[0])
+
+
+def index(variable: Variable, state: str) -> int:
+    """
+    This function takes a Variable instance and the name of a state in the
+    domain of that variable and returns the index of that state.
+    This should be implemented as a getter method in Variable class in the
+    future.
+
+    :param variable: Variable with a name, index and domain
+    :type variable: Variable
+    :param state: Name of the state for which we want the index
+    :type state: str
+    :return: Index of the state wrt the domain
+    :rtype: int
+    """
+    return variable.domain.index(state)
