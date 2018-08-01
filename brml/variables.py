@@ -14,4 +14,6 @@ butler = Variable('butler', 2, ('murderer', 'notmurderer')
 More information: https://stackoverflow.com/a/2970722/6435921
 Could also consider using dataclass for Python 3.7
 """
+# Notice that because domain is going to be a tuple, the elements are ordered,
+# So we don't need to explicitly say the index of each state.
 Variable = namedtuple('Variable', ['name', 'index', 'domain'])
