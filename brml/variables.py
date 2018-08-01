@@ -1,36 +1,3 @@
-
-
-def order_variables(variable_list):
-    """
-    This function can be used to order Variable instances stored in some
-    iterable, by index. When Variables will be implemented as a stand-alone
-    class, this could just become a method.
-
-    :param variable_list: Iterable containing Variable instances
-    :type variable_list: list
-    :return: Ordered list, based on Variable index
-    :rtype: list
-    """
-    return sorted(variable_list, key=lambda x: x[0])
-
-
-def ix(variable: 'Variable', state: str) -> int:
-    """
-    This function takes a Variable instance and the name of a state in the
-    domain of that variable and returns the index of that state.
-    This should be implemented as a getter method in Variable class in the
-    future.
-
-    :param variable: Variable with a name, index and domain
-    :type variable: Variable
-    :param state: Name of the state for which we want the index
-    :type state: str
-    :return: Index of the state wrt the domain
-    :rtype: int
-    """
-    return variable.domain.index(state)
-
-
 class Variable:
 
     def __init__(self, name: str, index: int, domain: tuple):
@@ -69,5 +36,37 @@ class Variable:
         :rtype: None
         """
         # TODO: Take care of when state name equal to one of name, ix, domain.
-        for state in self.domain:
-            setattr(self, state, self.domain.index(state))
+        for state in self.var_domain:
+            setattr(self, state, self.var_domain.index(state))
+
+
+def order_variables(variable_list):
+    """
+    This function can be used to order Variable instances stored in some
+    iterable, by index. When Variables will be implemented as a stand-alone
+    class, this could just become a method.
+
+    :param variable_list: Iterable containing Variable instances
+    :type variable_list: list
+    :return: Ordered list, based on Variable index
+    :rtype: list
+    """
+    return sorted(variable_list, key=lambda x: x.var_ix)
+
+
+def ix(variable: 'Variable', state: str) -> int:
+    """
+    This function takes a Variable instance and the name of a state in the
+    domain of that variable and returns the index of that state.
+    This should be implemented as a getter method in Variable class in the
+    future.
+
+    :param variable: Variable with a name, index and domain
+    :type variable: Variable
+    :param state: Name of the state for which we want the index
+    :type state: str
+    :return: Index of the state wrt the domain
+    :rtype: int
+    """
+    return variable.domain.index(state)
+
