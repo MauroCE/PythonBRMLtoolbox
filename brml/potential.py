@@ -84,6 +84,44 @@ class Potential:
                 "Variables parameter must be a list, np.array, int or float."
             )
 
+    def set_variables(self, variables):
+        """
+        This method can be used to set the variables AFTER initialization. For
+        instance, if we start off with:
+
+        >>> p = Potential()
+
+        and then decide that we want to add some data to it, we can use the
+        "setter" methods, as such:
+
+        >>> p.set_variables([1, 2])
+
+        Notice that this is the preferred behavior rather than actually go and
+        change the attribute manually. The following is HIGHLY discouraged:
+
+        >>> p.variables = [1, 2]
+
+        This is discouraged because there will be no check on the data type,
+        whereas the setter method allows for checking. This will be more
+        important for table.
+
+        :param variables: Variables for the class.
+        :type variables: np.array
+        :return: Nothing to return
+        :rtype: None
+        """
+        self.variables = self._check_vars(variables)
+
+    def set_table(self, table):
+        """
+        Similar to the set_variables method, just for table. This checks that
+        the number of variables in variables is the same as the number of
+        variables inferred from table.
+        :param table:
+        :return:
+        """
+        pass
+
 
 if __name__ == "__main__":
     p = Potential()
