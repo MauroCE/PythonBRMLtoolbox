@@ -106,11 +106,11 @@ class Potential:
         # Find number of variables in variables
         n_vars = len(self.variables)
         # Find number of dimensions in the table.
-        n_vars_table = len(self.table.shape)
+        n_vars_table = len(table.shape)
         # Notice that if table is an empty array such as np.array([]) then its
         #  shape will be (0,) so len((0,)) = 1. To avoid this, check for
         # this sub-case with ndarray.size
-        if n_vars != n_vars_table and self.table.size != 0:
+        if n_vars != n_vars_table and table.size != 0:
             raise ValueError(
                 "Number of declared variables is not equal to the number of "
                 "variables in the table. \nDeclared: {} variables"
@@ -160,4 +160,13 @@ class Potential:
 
 
 if __name__ == "__main__":
+    VARIABLES = 1
+    TABLE = np.array([0.3, 0.7])
+    # Example using setters
     p = Potential()
+    p.set_variables(VARIABLES)
+    p.set_table(TABLE)
+    print(p)
+    # Examples with initialization
+    p = Potential(VARIABLES, TABLE)
+    print(p)
