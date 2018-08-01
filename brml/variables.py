@@ -1,22 +1,3 @@
-from collections import namedtuple
-
-"""
-For now, until we don't find a better solution (e.g. a class?) use namedtuple.
-Variable namedtuple fields have this meaning:
-    1. name: Name of the variable (e.g. 'butler'). String
-    2. index: position/order in which we consider the variable (e.g. 0). Int
-    3. domain: possible states of the variable. Tuple of strings
-
-Example usage:
-
-butler = Variable('butler', 2, ('murderer', 'notmurderer')
-
-More information: https://stackoverflow.com/a/2970722/6435921
-Could also consider using dataclass for Python 3.7
-"""
-# Notice that because domain is going to be a tuple, the elements are ordered,
-# So we don't need to explicitly say the index of each state.
-Variable = namedtuple('Variable', ['name', 'index', 'domain'])
 
 
 def order_variables(variable_list):
@@ -33,7 +14,7 @@ def order_variables(variable_list):
     return sorted(variable_list, key=lambda x: x[0])
 
 
-def ix(variable: Variable, state: str) -> int:
+def ix(variable: 'Variable', state: str) -> int:
     """
     This function takes a Variable instance and the name of a state in the
     domain of that variable and returns the index of that state.
@@ -48,3 +29,45 @@ def ix(variable: Variable, state: str) -> int:
     :rtype: int
     """
     return variable.domain.index(state)
+
+
+class Variable:
+
+    def __init__(self, name: str, index: int, domain: tuple):
+        """
+        Constructor for Variable class.
+
+        :param name: Name of the variable.
+        :type name: str
+        :param index: Index of the variable
+        :type index: int
+        :param domain: States that Variable can be in
+        :type domain: tuple
+        """
+        # Prefix to avoid collision with states create by _set_state_indexes()
+        self.var_name = name
+        self.var_ix = index
+        self.var_domain = domain
+        # Set each state as attribute
+        self._set_state_indexes()
+
+    def __repr__(self):
+        """
+        String to re-instantiate class.
+        :return: String that can be used to re-create instance of the class.
+        :rtype: str
+        """
+        s = "Variable({}, {}, {})".format(self.var_name,
+                                          self.var_ix, self.var_domain)
+        return s
+
+    def _set_state_indexes(self):
+        """
+        This method creates attributes for each state. Each attribute is set to
+        its index in the domain tuple (which is ordered!)
+        :return: Nothing to return
+        :rtype: None
+        """
+        # TODO: Take care of when state name equal to one of name, ix, domain.
+        for state in self.domain:
+            setattr(self, state, self.domain.index(state))
