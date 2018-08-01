@@ -20,7 +20,7 @@ class Array(Potential):
         class is not implemented.
         :return:
         """
-        pass
+        return Array(variables=self.variables, table=np.log(self.table))
 
 
 if __name__ == "__main__":
