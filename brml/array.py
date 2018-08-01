@@ -13,27 +13,6 @@ class Array(Potential):
         """
         # Instantiate Potential class.
         super().__init__(variables, table)
-        # Check number of variables is correct
-        self._check_number_of_variables()
-
-    def _check_number_of_variables(self):
-        """
-        This function checks whether the provided number of variables (in the
-        variables parameter) is the same as the expected number of variables
-        that we infer from the table parameter. For instance, if we provide 2
-        variables, then the table should have 2 dimensions (one per variable!)
-        :return:
-        """
-        # Find number of variables in variables attribute
-        n_vars = len(self.variables)  # Remember, variables should be flat
-        # Now calculate number of variables in the table
-        n_vars_table = len(self.table.shape)
-        if n_vars != n_vars_table:
-            raise ValueError(
-                "Number of declared variables is not equal to the number of "
-                "variables in the table. \nDeclared: {} variables"
-                "\nTable shape: {}".format(n_vars, n_vars_table)
-            )
 
     def to_logarray(self):
         """
