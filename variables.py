@@ -10,5 +10,8 @@ Variable namedtuple fields have this meaning:
 Example usage:
 
 butler = Variable('butler', 2, ('murderer', 'notmurderer')
+
+More information: https://stackoverflow.com/a/2970722/6435921
+Could also consider using dataclass for Python 3.7
 """
 Variable = namedtuple('Variable', ['name', 'index', 'domain'])
