@@ -48,7 +48,9 @@ class Potential:
                  instance of the class.
         :rtype: str
         """
-        return "Potential({}, {})".format(self.variables, self.table)
+        s = "{}({}, {})".format(self.__class__.__name__,
+                                self.variables, self.table)
+        return s
 
     @staticmethod
     def _check_variables(variables):
