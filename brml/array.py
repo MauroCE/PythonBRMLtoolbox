@@ -25,7 +25,7 @@ class Array(Potential):
         :return:
         """
         # Find number of variables in variables attribute
-        n_vars = len(self.variables)
+        n_vars = len(self.variables)  # Remember, variables should be flat
         # Now calculate number of variables in the table
         n_vars_table = len(self.table.shape)
         if n_vars != n_vars_table:
