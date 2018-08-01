@@ -12,11 +12,9 @@ class Variable:
         :type domain: tuple
         """
         # Prefix to avoid collision with states create by _set_state_indexes()
-        self.var_name = name
-        self.var_ix = index
-        self.var_domain = domain
-        # Set each state as attribute
-        self._set_state_indexes()
+        self.name = name
+        self.ix = index
+        self.domain = domain
 
     def __repr__(self):
         """
@@ -24,20 +22,8 @@ class Variable:
         :return: String that can be used to re-create instance of the class.
         :rtype: str
         """
-        s = "Variable({}, {}, {})".format(self.var_name,
-                                          self.var_ix, self.var_domain)
+        s = "Variable({}, {}, {})".format(self.name, self.ix, self.domain)
         return s
-
-    def _set_state_indexes(self):
-        """
-        This method creates attributes for each state. Each attribute is set to
-        its index in the domain tuple (which is ordered!)
-        :return: Nothing to return
-        :rtype: None
-        """
-        # TODO: Take care of when state name equal to one of name, ix, domain.
-        for state in self.var_domain:
-            setattr(self, state, self.var_domain.index(state))
 
     def ix(self, state: str) -> int:
         """
@@ -55,7 +41,7 @@ class Variable:
         :return: Index of the state wrt the domain
         :rtype: int
         """
-        return self.var_domain.index(state)
+        return self.domain.index(state)
 
     @staticmethod
     def order_variables(variable_list):
@@ -69,4 +55,4 @@ class Variable:
         :return: Ordered list, based on Variable index
         :rtype: list
         """
-        return sorted(variable_list, key=lambda x: x.var_ix)
+        return sorted(variable_list, key=lambda x: x.ix)
