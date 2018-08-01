@@ -1,2 +1,4 @@
 # PythonBRMLtoolbox
-My own version of BRML in Python, although there is already PyBRML
+My version of 
+[BRMLtoolbox](http://web4.cs.ucl.ac.uk/staff/D.Barber/pmwiki/pmwiki.php?n=Brml.Software)
+ in Python.
