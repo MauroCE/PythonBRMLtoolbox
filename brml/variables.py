@@ -33,7 +33,7 @@ def order_variables(variable_list):
     return sorted(variable_list, key=lambda x: x[0])
 
 
-def index(variable: Variable, state: str) -> int:
+def ix(variable: Variable, state: str) -> int:
     """
     This function takes a Variable instance and the name of a state in the
     domain of that variable and returns the index of that state.
