@@ -39,6 +39,24 @@ class Variable:
         for state in self.var_domain:
             setattr(self, state, self.var_domain.index(state))
 
+    def ix(self, state: str) -> int:
+        """
+        This function takes a Variable instance and the name of a state in the
+        domain of that variable and returns the index of that state.
+        This should be implemented as a getter method in Variable class in the
+        future.
+
+        Notice that one could use both:
+        butler.ix('murderer') and butler.murderer
+        TODO: Decide which implementation is better
+
+        :param state: Name of the state for which we want the index
+        :type state: str
+        :return: Index of the state wrt the domain
+        :rtype: int
+        """
+        return self.var_domain.index(state)
+
     @staticmethod
     def order_variables(variable_list):
         """
@@ -52,24 +70,3 @@ class Variable:
         :rtype: list
         """
         return sorted(variable_list, key=lambda x: x.var_ix)
-
-
-
-
-
-def ix(variable: 'Variable', state: str) -> int:
-    """
-    This function takes a Variable instance and the name of a state in the
-    domain of that variable and returns the index of that state.
-    This should be implemented as a getter method in Variable class in the
-    future.
-
-    :param variable: Variable with a name, index and domain
-    :type variable: Variable
-    :param state: Name of the state for which we want the index
-    :type state: str
-    :return: Index of the state wrt the domain
-    :rtype: int
-    """
-    return variable.domain.index(state)
-
