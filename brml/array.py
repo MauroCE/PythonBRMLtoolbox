@@ -20,6 +20,7 @@ class Array(Potential):
         class is not implemented.
         :return:
         """
+        # TODO: See if LogArray class is needed or this is enough.
         return Array(variables=self.variables, table=np.log(self.table))
 
 
