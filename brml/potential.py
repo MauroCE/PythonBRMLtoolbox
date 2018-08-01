@@ -39,3 +39,12 @@ class Potential:
         # them as instance attributes
         self.variables = variables
         self.table = table
+
+    def __repr__(self) -> str:
+        """
+        Creates a string that can be used to re-instantiate.
+        :return: String that can be fed into eval() function to re-create the
+                 instance of the class.
+        :rtype: str
+        """
+        return "Potential({}, {})".format(self.variables, self.table)
