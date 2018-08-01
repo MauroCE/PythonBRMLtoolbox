@@ -17,3 +17,17 @@ Could also consider using dataclass for Python 3.7
 # Notice that because domain is going to be a tuple, the elements are ordered,
 # So we don't need to explicitly say the index of each state.
 Variable = namedtuple('Variable', ['name', 'index', 'domain'])
+
+
+def order_variables(variable_list):
+    """
+    This function can be used to order Variable instances stored in some
+    iterable, by index. When Variables will be implemented as a stand-alone
+    class, this could just become a method.
+
+    :param variable_list: Iterable containing Variable instances
+    :type variable_list: list
+    :return: Ordered list, based on Variable index
+    :rtype: list
+    """
+    return sorted(variable_list, key=lambda x: x[0])
