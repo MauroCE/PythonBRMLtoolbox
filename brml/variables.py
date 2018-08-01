@@ -13,7 +13,7 @@ class Variable:
         """
         # Prefix to avoid collision with states create by _set_state_indexes()
         self.name = name
-        self.ix = index
+        self.index = index
         self.domain = domain
 
     def __repr__(self):
@@ -22,7 +22,7 @@ class Variable:
         :return: String that can be used to re-create instance of the class.
         :rtype: str
         """
-        s = "Variable({}, {}, {})".format(self.name, self.ix, self.domain)
+        s = "Variable({}, {}, {})".format(self.name, self.index, self.domain)
         return s
 
     def ix(self, state: str) -> int:
@@ -55,4 +55,4 @@ class Variable:
         :return: Ordered list, based on Variable index
         :rtype: list
         """
-        return sorted(variable_list, key=lambda x: x.ix)
+        return sorted(variable_list, key=lambda x: x.index)
