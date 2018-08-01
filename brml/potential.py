@@ -38,8 +38,8 @@ class Potential:
         """
         # For now, just pass variables and table in the constructor and assign
         # them as instance attributes
-        self.variables = self._check_vars(variables)
-        self.table = table
+        self.variables = self._check_variables(variables)
+        self.table = self._check_table(table)
 
     def __repr__(self) -> str:
         """
@@ -51,7 +51,7 @@ class Potential:
         return "Potential({}, {})".format(self.variables, self.table)
 
     @staticmethod
-    def _check_vars(variables):
+    def _check_variables(variables):
         """
         This method can be used at initialization, in the __init__ constructor.
         Its purpose is to check that the variables argument in __init__ is
@@ -84,6 +84,42 @@ class Potential:
                 "Variables parameter must be a list, np.array, int or float."
             )
 
+    def _check_table(self, table):
+        """
+        Similar to _check_variables. This function checks that table has the
+        correct data type. Most importantly, it checks that:
+            1. Table is set after Variables are set (wouldn't make sense
+               otherwise)
+            2. Number of variables inferred from table is the same as the
+               number of variables provided in variables attribute.
+        :param table: Table containing probabilities.
+        :type table: np.array
+        :return: Table that has been checked and converted if necessary
+        :rtype: np.array
+        """
+        # Table can't be set before variables
+        if self.variables.size == 0 and table.size != 0:
+            raise ValueError(
+                "Cannot set table before variables. To set variables, call"
+                "set_variables method."
+            )
+        # Find number of variables in variables
+        n_vars = len(self.variables)
+        # Find number of dimensions in the table.
+        n_vars_table = len(self.table.shape)
+        # Notice that if table is an empty array such as np.array([]) then its
+        #  shape will be (0,) so len((0,)) = 1. To avoid this, check for
+        # this sub-case with ndarray.size
+        if n_vars != n_vars_table and self.table.size != 0:
+            raise ValueError(
+                "Number of declared variables is not equal to the number of "
+                "variables in the table. \nDeclared: {} variables"
+                "\nTable shape: {}".format(n_vars, n_vars_table)
+            )
+        # Finally, return the table
+        # TODO: Check for numeric values in np.array like for variables
+        return table
+
     def set_variables(self, variables):
         """
         This method can be used to set the variables AFTER initialization. For
@@ -110,7 +146,7 @@ class Potential:
         :return: Nothing to return
         :rtype: None
         """
-        self.variables = self._check_vars(variables)
+        self.variables = self._check_variables(variables)
 
     def set_table(self, table):
         """
@@ -120,7 +156,7 @@ class Potential:
         :param table:
         :return:
         """
-        pass
+        self.table = self._check_table(table)
 
 
 if __name__ == "__main__":
