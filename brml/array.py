@@ -23,6 +23,15 @@ class Array(Potential):
         # TODO: See if LogArray class is needed or this is enough.
         return Array(variables=self.variables, table=np.log(self.table))
 
+    def sumpot(self, axis):
+        """
+        This method does marginalization. It sums over a variable.
+        TODO: See if this has to be moved to Potential class instead.
+        :param axis:
+        :return:
+        """
+        pass
+
 
 if __name__ == "__main__":
     a = Array([1], np.array([0.1, 0.2]))
