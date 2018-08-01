@@ -5,7 +5,7 @@ class Potential:
     """
     Class representing MATLAB potential class.
     """
-    def __init__(self, variables, table):
+    def __init__(self, variables=np.array([]), table=np.array([])):
         """
         The way I understand this class, is that a Potential instance is a
         probability table where we have the probabilities for each n-tuple of
@@ -67,8 +67,15 @@ class Potential:
         """
         # Allow: list, np.array
         if isinstance(variables, (np.ndarray, list)):
-            # Handle np.array with dim (n, 1) or other dimensions
-            return np.array(variables, dtype=np.int8).flatten()
+            # Must be a numerical iterable / vector
+            variables = np.array(variables)
+            if np.issubdtype(variables.dtype, np.number):
+                # Handle np.array with dim (n, 1) or other dimensions
+                return variables.astype(np.int8).flatten()
+            else:
+                raise TypeError(
+                    "Variables must be a numerical vector."
+                )
         # Convert int, float
         elif isinstance(variables, (int, float)):
             return np.array([variables], dtype=np.int8)
@@ -76,3 +83,7 @@ class Potential:
             raise TypeError(
                 "Variables parameter must be a list, np.array, int or float."
             )
+
+
+if __name__ == "__main__":
+    p = Potential()
