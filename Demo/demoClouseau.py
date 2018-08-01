@@ -9,12 +9,6 @@ maid = Variable(name='maid', index=1, domain=('murderer', 'notmurderer'))
 knife = Variable(name='knife', index=0, domain=('used', 'notused'))
 N = 3  # Number of variables
 
-# Define states
-murderer = 0
-notmurderer = 1
-used = 0
-notused = 1
-
 # Sort the variables by index
 variables = Variable.order_variables([butler, maid, knife])
 
