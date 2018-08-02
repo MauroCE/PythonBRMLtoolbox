@@ -108,7 +108,7 @@ class Potential:
         # Find number of variables in variables
         n_vars = len(self.variables)
         # Find number of dimensions in the table.
-        n_vars_table = len(table.shape)
+        n_vars_table = np.array(table).dim
         # Notice that if table is an empty array such as np.array([]) then its
         #  shape will be (0,) so len((0,)) = 1. To avoid this, check for
         # this sub-case with ndarray.size
