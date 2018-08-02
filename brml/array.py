@@ -43,7 +43,7 @@ class Array(Potential):
         :return: Number of states in the table for each variable.
         """
         # Find number of dimensions of the table (= n variables)
-        n_dim = len(self.table.shape)
+        n_dim = self.table.ndim  # len(self.table.shape)
         # 1D vector (1 variable) -> length of vector
         if n_dim == 1:
             return len(self.table)
@@ -65,7 +65,6 @@ class Array(Potential):
         :return:
         """
         pass
-
 
 
 if __name__ == "__main__":
