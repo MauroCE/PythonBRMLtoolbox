@@ -28,9 +28,25 @@ def initialization(variables):
     print("Size: ", pot.variables.shape)
 
 
+def setter(variables):
+    """
+    Similar to initialization function, but used to check assignment after
+    initialization.
+    :param variables:
+    :return:
+    """
+    print("-" * 80)  # Just for decoration
+    print("Input variable: ", variables)
+    pot = Potential()
+    pot.set_variables(variables)
+    print("Variables: ", pot.variables)
+    print("Type: ", type(pot.variables))
+    print("Size: ", pot.variables.shape)
+
+
 if __name__ == "__main__":
     print("=" * 80)
-    print("SINGLE VARIABLE")
+    print("INITIALIZATION SINGLE VARIABLE")
     print("=" * 80)
     initialization(1)
     initialization(1.0)
@@ -38,9 +54,24 @@ if __name__ == "__main__":
     initialization(np.array([1]))
     initialization(np.array([[1]]))
     print("=" * 80)
-    print("MULTIPLE VARIABLES")
+    print("INITIALIZATION MULTIPLE VARIABLES")
     print("=" * 80)
     initialization([1, 2])
     initialization(np.array([1, 2]))
     initialization(np.array([[1, 2]]))
     initialization(np.array([[1], [2]]))
+    print("=" * 80)
+    print("SETTER SINGLE VARIABLE")
+    print("=" * 80)
+    setter(1)
+    setter(1.0)
+    setter([1])
+    setter(np.array([1]))
+    setter(np.array([[1]]))
+    print("=" * 80)
+    print("SETTER MULTIPLE VARIABLES")
+    print("=" * 80)
+    setter([1, 2])
+    setter(np.array([1, 2]))
+    setter(np.array([[1, 2]]))
+    setter(np.array([[1], [2]]))
