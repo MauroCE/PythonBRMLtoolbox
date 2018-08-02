@@ -57,6 +57,9 @@ That is, you cannot initialize an empty array `pot = Array()` and then call
 first use `set_variables` method, and after use the `set_table` method. If, instead, 
 you decide to pass variables and table on initialization, then everything will be fine.
 
+Go to `check/potential_variables.py` and you'll find a test to check
+that the statements above are correct!
+
  ## What is BRMLtoolbox?
  The BRMLtoolbox is a MATLAB toolbox written by David Barber, Reader for the Computational Statistics and Machine Learning MSc at UCL. The toolbox should be used together with the book Bayesian Reasoning and Machine Learning. It is a set of tools to help readers see how mathematical models translate into actual code.
  
