@@ -1,4 +1,5 @@
 import numpy as np
+from brml.utilities import isvector, isnumeric
 
 
 class Potential:
@@ -63,6 +64,7 @@ class Potential:
         the data type, however to check whether it is iterable or not, go to
         https://stackoverflow.com/a/1952655/6435921
 
+
         :param variables:
         :return: variables with correct data type
         :rtype: np.array
@@ -71,7 +73,7 @@ class Potential:
         if isinstance(variables, (np.ndarray, list)):
             # Must be a numerical iterable / vector
             variables = np.array(variables)
-            if np.issubdtype(variables.dtype, np.number):
+            if isnumeric(variables):
                 # Handle np.array with dim (n, 1) or other dimensions
                 return variables.astype(np.int8).flatten()
             else:
@@ -107,8 +109,17 @@ class Potential:
             )
         # Find number of variables in variables
         n_vars = len(self.variables)
+        table = np.array(table)  # Could be a list
+        # Must be numeric vector
+        if not isnumeric(table):
+            raise TypeError(
+                "Table must be a numeric array."
+            )
+        # Isvector True for (1, n), (n, 1), (n,) and (1,1,1, n) <- in any order
+        if isvector(table):
+            table = table.flatten()
         # Find number of dimensions in the table.
-        n_vars_table = np.array(table).dim
+        n_vars_table = table.ndim
         # Notice that if table is an empty array such as np.array([]) then its
         #  shape will be (0,) so len((0,)) = 1. To avoid this, check for
         # this sub-case with ndarray.size
@@ -118,8 +129,6 @@ class Potential:
                 "variables in the table. \nDeclared: {} variables"
                 "\nTable shape: {}".format(n_vars, n_vars_table)
             )
-        # Finally, return the table
-        # TODO: Check for numeric values in np.array like for variables
         return table
 
     def set_variables(self, variables):
