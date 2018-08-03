@@ -67,6 +67,7 @@ def isnumeric(numpyarray):
     :return: Whether numpy array contains numeric values
     :rtype: bool
     """
+    numpyarray = np.array(numpyarray)  # Could be a list
     if np.issubdtype(numpyarray.dtype, np.number):
         return True
     else:
