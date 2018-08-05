@@ -26,12 +26,32 @@ def initialization(variables, table):
 
 
 if __name__ == "__main__":
-    # 1 variable, 2 states (row vector) -> OK
+    print("="*80)
+    print("1 SCALAR VARIABLE, TABLE 2 STATES")
+    print("="*80)
+    # variable: 1, table (2,) 2 states -> OK
     initialization(variables=1, table=np.array([0.4, 0.6]))
-    # 1 variable, 4 states (row vector) -> OK
-    initialization(variables=1, table=np.array([0.1, 0.2, 0.4, 0.1]))
-    # 1 variable, 2 states (col vector 1x2)
+    # variable: 1, table (1,2) 2 states -> OK
     initialization(variables=1, table=np.array([[0.4, 0.6]]))
-    # 1 variable, 2 states (col, vector 2x1)
+    # variable: 1, table (2,1) 2 states -> OK
     initialization(variables=1, table=np.array([[0.4], [0.6]]))
 
+    print("="*80)
+    print("[1] LIST VARIABLE, TABLE 2 STATES")
+    print("="*80)
+    # variable: [1], table (2,) 2 states
+    initialization(variables=[1], table=np.array([0.4, 0.6]))
+    # variable: [1], table (1,2) 2 states
+    initialization(variables=[1], table=np.array([[0.4, 0.6]]))
+    # variable: [1], table (2,1) 2 states
+    initialization(variables=[1], table=np.array([[0.4], [0.6]]))
+
+    print("="*80)
+    print("MULTIPLE VARIABLES, TABLE 2 STATES")
+    print("="*80)
+    # variables [1, 2], table (4,) -> NOT OK (wrong shape)
+    initialization(variables=[1, 2], table=np.array([0.4, 0.6, 0.7, 0.3]))
+    # variables [1, 2], table (2, 2) -> OK
+    initialization(variables=[1, 2], table=np.array([[0.4, 0.6], [0.7, 0.3]]))
+    # variables [1, 2], table (1,4) -> OK
+    initialization(variables=[1, 2], table=np.array([[0.4, 0.6, 0.7, 0.3]]))
