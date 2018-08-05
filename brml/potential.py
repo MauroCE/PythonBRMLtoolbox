@@ -127,7 +127,7 @@ class Potential:
             raise ValueError(
                 "Number of declared variables is not equal to the number of "
                 "variables in the table. \nDeclared: {} variables"
-                "\nTable shape: {}".format(n_vars, n_vars_table)
+                "\nTable number dimensions: {}".format(n_vars, n_vars_table)
             )
         return table
 
