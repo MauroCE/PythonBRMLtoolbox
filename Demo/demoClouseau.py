@@ -1,5 +1,5 @@
 import numpy as np
-from brml.array import Array
+from brml.prob_tables.array import Array
 from brml.multpots import multpots
 from brml.variables import Variable
 

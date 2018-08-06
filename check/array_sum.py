@@ -1,4 +1,4 @@
-from brml.array import Array
+from brml.prob_tables.array import Array
 import numpy as np
 
 

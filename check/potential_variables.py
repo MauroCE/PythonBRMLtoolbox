@@ -1,5 +1,5 @@
 import numpy as np
-from brml.potential import Potential
+from brml.prob_tables.potential import Potential
 
 
 def initialization(variables):

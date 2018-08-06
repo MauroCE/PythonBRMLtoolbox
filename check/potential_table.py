@@ -1,4 +1,4 @@
-from brml.potential import Potential
+from brml.prob_tables.potential import Potential
 import numpy as np
 
 

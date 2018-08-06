@@ -1,4 +1,4 @@
-from brml.potential import Potential
+from brml.prob_tables.potential import Potential
 import numpy as np
 
 
@@ -24,7 +24,7 @@ class Const(Potential):
             3. List with length 1
             4. Array with size 1
 
-        :param table: Value to be constant probability table
+        :param value: Value to be constant probability table
         :return:
         """
         # If numeric -> return np.array with that number
@@ -67,5 +67,5 @@ if __name__ == "__main__":
     pot = Const(0.7)
     print("Const potential:", pot)
     print("Table: ", pot.table)
-    # TODO: Need to move .size() method to Potential class instead of Array
     print("Variables: ", pot.variables)
+    print("Size: ", pot.size())
