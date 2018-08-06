@@ -1,6 +1,7 @@
 import copy
 import numpy as np
 from brml.prob_tables.potential import Potential
+from brml.prob_tables.const import Const
 
 
 class Array(Potential):
@@ -22,9 +23,9 @@ class Array(Potential):
         :return:
         """
         # TODO: See if LogArray class is needed or this is enough.
-        return Array(variables=self.variables, table=np.log(self.table))
+        return self.__class__(self.variables, np.log(self.table))
 
-    def sum(self, variables):
+    def sum(self, variables=None):
         """
         This method sums the probability table over provided variables. It is
         the marginalization operation.
@@ -35,24 +36,31 @@ class Array(Potential):
         :param variables:
         :return:
         """
+        # Allow for default "None" to sum over all variables
+        if variables is None:
+            variables = self.variables
         # New Array will have variables in self that are not in variables
         # because those will be summed over
-        newpot = Array(variables=np.setdiff1d(self.variables, variables))
+        remaining_vars = np.setdiff1d(self.variables, variables)
+        if remaining_vars.size == 0:
+            newpot = Const()
+        else:
+            newpot = Array(variables=remaining_vars)
         # Find the indexes of the variables that we will sum over. These are
-        # all those in self that are in variables
+        # all those in self that are in variables. Notice that nonzero()
+        # returns a tuple. Each array in the tuple contains indexes of non-zero
+        # elements for that dimension. That is there is an array for each
+        # dimension. But since variables are going to be flat, should be first
+        # element.
         to_sumover = np.isin(self.variables, variables).nonzero()[0]
-        # FIXME: Notice that nonzero() returns a tuple. Each array in the tuple
-        # FIXME: contains indexes of non-zero elements for that dimension. That
-        # FIXME: is there is an array for each dimension. But since variables
-        # FIXME: are going to be flat, should be first element.
         # Find the table
         t = copy.deepcopy(self.table)
-        for variable_index in to_sumover:
+        for variable_index in to_sumover[::-1]:
+            # FIXME: Notice that at the moment I am summing over in opposite
+            # FIXME: order, this is so indexes don't disappear before they are
+            # FIXME: Used
             t = t.sum(axis=variable_index)
         # Add table to Array
-        # TODO: When we sum over all variables, Array will be initialized with
-        # TODO: no variables, thus we need to create Const potential class,
-        # TODO: having no variables, but just a table with one element.
         newpot.set_table(table=t)
         return newpot
 
@@ -73,3 +81,9 @@ if __name__ == "__main__":
     print("b: ", b)
     print("Number of states of a: ", a.size())
     print("Number of states of b: ", b.size())
+    # Sum
+    pot = Array([1, 2], np.array([[0.4, 0.6], [0.3, 0.7]]))
+    print("Potential Array: \n", pot)
+    print("Marginalize var 1: \n", pot.sum(1))
+    print("Marginalize var 2: \n", pot.sum(2))
+    print("Marginalize var [1,2]: \n", pot.sum([1, 2]))
