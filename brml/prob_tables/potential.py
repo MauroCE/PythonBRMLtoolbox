@@ -187,7 +187,6 @@ class Potential:
                of both dimensions (e.g. max(1, 2) = 2)
             3. Table multidimensional but actually a vector - length vector
             4. Table multidimensional -> return shape of table
-        TODO: Consider adding a __len__ method.
         Notice that it returns a numpy array even if table is a 1D vector.
         :return: Number of states in the table for each variable.
         :rtype: numpy.array
