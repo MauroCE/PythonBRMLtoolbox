@@ -64,11 +64,16 @@ class Array(Potential):
         newpot.set_table(table=t)
         return newpot
 
-    def sumpot(self, axis):
+    def sumpot(self, variables=None, sumover=True):
         """
         This method does marginalization. It sums over a variable.
         TODO: See if this has to be moved to Potential class instead.
-        :param axis:
+        :param variables: Variables to consider.
+        :type variables: list or numpy.array
+        :param sumover: Whether variables specified with "variables" argument
+                        are to be summed over, or if they are the ones to keep
+                        at the end.
+        :type sumover: bool
         :return:
         """
         pass

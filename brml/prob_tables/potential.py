@@ -53,15 +53,6 @@ class Potential:
                                 self.variables, self.table)
         return s
 
-    def __len__(self):
-        """
-        Overwrites the behavior of the __len__ call (for instance len(Array).
-        When calling len(Array) it is equivalent to just call Array.size()
-        :return: Number of states in the Array's table
-        :rtype: numpy.array
-        """
-        return self.size()
-
     @staticmethod
     def _check_variables(variables):
         """
