@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aed74496-6d95-4a68-b2d1-e24f16ffc360" name="Default" comment="" />
+    <list default="true" id="aed74496-6d95-4a68-b2d1-e24f16ffc360" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,46 +13,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="potential.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/brml/potential.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="191">
+                <caret line="21" selection-start-line="21" selection-end-line="21" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="array.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/brml/array.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="147">
+              <caret line="54" column="66" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="potential_table.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/check/potential_table.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="59" lean-forward="true" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="array_sum.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/check/array_sum.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="30" column="64" lean-forward="true" selection-start-line="30" selection-start-column="64" selection-end-line="30" selection-end-column="64" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#2079#2086#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,17 +61,18 @@
         <option value="$PROJECT_DIR$/Demo/demoClouseau.py" />
         <option value="$PROJECT_DIR$/brml/variables.py" />
         <option value="$PROJECT_DIR$/check/potential_variables.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/brml/utilities.py" />
         <option value="$PROJECT_DIR$/brml/potential.py" />
         <option value="$PROJECT_DIR$/check/potential_table.py" />
         <option value="$PROJECT_DIR$/check/potential_sum.py" />
         <option value="$PROJECT_DIR$/check/array_sum.py" />
         <option value="$PROJECT_DIR$/brml/array.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="951" />
     <option name="y" value="21" />
     <option name="width" value="978" />
@@ -107,11 +89,6 @@
             <path>
               <item name="PythonBRMLtoolbox" type="b2602c69:ProjectViewProjectNode" />
               <item name="PythonBRMLtoolbox" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PythonBRMLtoolbox" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PythonBRMLtoolbox" type="462c0819:PsiDirectoryNode" />
-              <item name="check" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -263,16 +240,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328877" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.328877" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.421123" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.421123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -311,29 +288,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brml/potential.py</url>
-          <line>177</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Demo/demoClouseau.py</url>
           <line>44</line>
           <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brml/array.py</url>
-          <line>104</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brml/potential.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/brml/array.py</url>
-          <line>72</line>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/check/array_sum.py</url>
@@ -459,16 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="387">
-            <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/brml/potential.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -509,6 +456,26 @@
           <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="191">
+            <caret line="21" selection-start-line="21" selection-end-line="21" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="54" column="66" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
+          <folding>
+            <element signature="e#2079#2086#0" expanded="true" />
           </folding>
         </state>
       </provider>
