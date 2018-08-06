@@ -1,6 +1,5 @@
 import copy
 import numpy as np
-from brml.utilities import isvector
 from brml.potential import Potential
 
 
@@ -15,15 +14,6 @@ class Array(Potential):
         """
         # Instantiate Potential class.
         super().__init__(variables, table)
-
-    def __len__(self):
-        """
-        Overwrites the behavior of the __len__ call (for instance len(Array).
-        When calling len(Array) it is equivalent to just call Array.size()
-        :return: Number of states in the Array's table
-        :rtype: numpy.array
-        """
-        return self.size()
 
     def to_logarray(self):
         """
