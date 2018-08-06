@@ -70,12 +70,19 @@ class Array(Potential):
         newpot = Array(variables=np.setdiff1d(self.variables, variables))
         # Find the indexes of the variables that we will sum over. These are
         # all those in self that are in variables
-        to_sumover = np.isin(self.variables, variables).nonzero()
+        to_sumover = np.isin(self.variables, variables).nonzero()[0]
+        # FIXME: Notice that nonzero() returns a tuple. Each array in the tuple
+        # FIXME: contains indexes of non-zero elements for that dimension. That
+        # FIXME: is there is an array for each dimension. But since variables
+        # FIXME: are going to be flat, should be first element.
         # Find the table
         t = copy.deepcopy(self.table)
         for variable_index in to_sumover:
-            t.sum(axis=variable_index)
+            t = t.sum(axis=variable_index)
         # Add table to Array
+        # TODO: When we sum over all variables, Array will be initialized with
+        # TODO: no variables, thus we need to create Const potential class,
+        # TODO: having no variables, but just a table with one element.
         newpot.set_table(table=t)
         return newpot
 
