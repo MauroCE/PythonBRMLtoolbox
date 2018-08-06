@@ -169,6 +169,25 @@ class Potential:
         """
         self.table = self._check_table(table)
 
+    def size(self):
+        """
+        Finds the number of states of the Array potential.
+        At the moment this method calculates the number of states as follows:
+            1. Table 1D (vector) -> length of vector
+            2. Table 2D but one dimension has length 1 (e.g. (1, 2)) -> max
+               of both dimensions (e.g. max(1, 2) = 2)
+            3. Table multidimensional but actually a vector - length vector
+            4. Table multidimensional -> return shape of table
+        TODO: Consider adding a __len__ method.
+        Notice that it returns a numpy array even if table is a 1D vector.
+        :return: Number of states in the table for each variable.
+        :rtype: numpy.array
+        """
+        if isvector(self.table):
+            return np.array([len(self.table)]).astype(np.int8)
+        else:
+            return np.array(self.table.shape).astype(np.int8)
+
 
 if __name__ == "__main__":
     VARIABLES = 1
