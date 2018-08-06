@@ -4,17 +4,28 @@ import numpy as np
 
 class Const(Potential):
 
-    def __init__(self, value):
+    def __init__(self, value=np.array([]), variables=np.array([])):
         """
         Initializes Constant Potential table. The difference between a Const
         potential and an array is that Const does not need variables. It
         just contains a value (instead of a table).
 
+        Notice that variables should never be set to anything different from []
+        However, even if someone did set it to something different from [],
+        _check_variables method would still set self.variables to [].
         :param value: for constant table
         :type value: float
         """
         # Constant probability table has no variables
-        super().__init__([], value)
+        super().__init__(variables, value)
+
+    def to_logconst(self):
+        """
+        Converts Const to a Const where the value stored in self.table is
+        the logarithm of the initial value
+        :return:
+        """
+        return Const(np.log(self.table))
 
     def _check_table(self, value):
         """
@@ -44,6 +55,16 @@ class Const(Potential):
             raise NotImplementedError(
                 "Table value can only be float, int, list or np.array."
             )
+
+    @staticmethod
+    def _check_variables(variables):
+        """
+        Overwrite this method so that even if they try to change variables,
+        it will not be possible. This could happen in certain methods such as
+        in sum()
+        :return:
+        """
+        return np.array([])
 
     def evalpot(self, evvariables=0, evidence=0):
         """
