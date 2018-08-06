@@ -44,7 +44,7 @@ class Const(Potential):
         # If list or numpy array, check size
         elif isinstance(value, (np.ndarray, list)):
             # If only 1 element -> return flatten array
-            if np.array([value]).size == 1:
+            if np.array([value]).size <= 1:
                 return np.array([value]).flatten()
             # Otherwise provided more than one value
             else:
