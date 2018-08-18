@@ -61,13 +61,14 @@ Go to `check/potential_variables.py` and you'll find a test to check
 that the statements above are correct!
 
  ## What is BRMLtoolbox?
- The BRMLtoolbox is a MATLAB toolbox written by David Barber, Reader for the Computational Statistics and Machine Learning MSc at UCL. The toolbox should be used together with the book Bayesian Reasoning and Machine Learning. It is a set of tools to help readers see how mathematical models translate into actual code.
+ The BRMLtoolbox is a MATLAB toolbox written by David Barber, Reader for the Computational Statistics and Machine Learning MSc at UCL. The BRML toolbox should be used together with the book Bayesian Reasoning and Machine Learning. It is a set of tools to help readers see how mathematical models translate into actual code.
  
  ## Software Requirements
  1. Python (3.6 onwards, although only type hints would need to be removed for Python 3.5)
  2. Numpy
  
  ## Mathematical Requirements
+ The mathematical requirements for understanding classes within BRML toolbox are:
  1. Calculus & Linear Algebra
  2. Probability
  3. Algorithms
@@ -75,10 +76,10 @@ that the statements above are correct!
  I am currenlty trying to write an introduction to Probability here in [my Proofwiki account](https://proofwiki.org/wiki/User:MauroCamaraEscudero), although it is just a draft for now.
  
  ## Contributions
- Please feel free to contribute to this project! There are already a few incomplete implementations of the code, hopefully this version will be more up-to-date and efficient with your help!
+ Please feel free to contribute to this python version of the BRML toolbox! There are already a few incomplete implementations of the code, hopefully this version will be more up-to-date and efficient with your help!
  
  ## Reference & Book
- As I said earlier BRMLtoolbox comes with [Bayesian Reasoning and Machine Learning](http://web4.cs.ucl.ac.uk/staff/D.Barber/textbook/090310.pdf) book.
+ As I said earlier BRML toolbox comes with [Bayesian Reasoning and Machine Learning](http://web4.cs.ucl.ac.uk/staff/D.Barber/textbook/090310.pdf) book.
  
  ```
  @BOOK{barberBRML2012,
